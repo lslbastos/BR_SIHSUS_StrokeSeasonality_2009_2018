@@ -7,5 +7,3 @@ Authors: Pedro Kurtz, Leonardo S.L. Bastos (lslbastos), Soraida Aguilar, Silvio 
 
 Publish at: International Journal of Stroke
 DOI: 10.1177/1747493020947333
-
-Reference citation
