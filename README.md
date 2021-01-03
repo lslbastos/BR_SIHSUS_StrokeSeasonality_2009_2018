@@ -1,6 +1,6 @@
-# BR_SIHSUS_StrokeSeasonality_2009_2018
+# Analysis of Seasonality in Stroke Hospital Admissions in Brazil from 2009 to 2018 
 
-Code for the analysis from the manuscript:
+Data, code and results used in:
 "Effect of seasonal and temperature variation on hospitalizations for stroke over a 10-year period in Brazil"
 
 Authors: Pedro Kurtz, Leonardo S.L. Bastos (lslbastos), Soraida Aguilar, Silvio Hamacher, and Fernando A. Bozza 
