@@ -53,81 +53,8 @@ df_stroke_serie_regiao <- df_stroke_dados %>%
         bind_rows(df_stroke_series_brazil)
 
 
-# Age-adjusted data State -------------------------------------------------
-
-## Average median age-adjusted rate per Region / State
-# df_stroke_serie_estado_age_day <- df_stroke_serie_regiao %>% 
-#         inner_join(df_pop_ibge, by = c("estado" = "estado",
-#                                        "regiao" = "regiao",
-#                                        "idade_grupo_who" = "idade",
-#                                        "ano" = "ano",
-#                                        "elder_group" = "elder_group")) %>%
-#         inner_join(df_pop_who_rates, by = c("idade_grupo_who" = "age_group",
-#                                             "elder_group" = "elder_group")) %>% 
-#         group_by(regiao, estado, ano, mes, dia) %>% 
-#         summarise(admissoes = sum(n),
-#                   pop_total = sum(populacao_total),
-#                   age_hosp_rate = 100000*epitools::ageadjust.direct(count = n, pop = populacao_total, stdpop = pop_rate / 100)[2]
-#                   ) %>%
-#         ungroup() %>% 
-#         group_by(regiao, estado, ano, mes) %>% 
-#         summarise(age_hosp_rate_day_p50 = median(age_hosp_rate),
-#                   age_hosp_rate_day_p25 = quantile(age_hosp_rate, probs = 0.25),
-#                   age_hosp_rate_day_p75 = quantile(age_hosp_rate, probs = 0.75)) %>%
-#         group_by(regiao, estado) %>% 
-#         arrange(regiao, estado, ano, mes) %>% 
-#         mutate(periodo = 1:n()) %>% 
-#         ungroup()
-# 
-# 
-# df_stroke_serie_estado_age_month <- df_stroke_serie_regiao %>% 
-#         group_by(regiao, estado, idade_grupo_who, elder_group, ano, mes) %>% 
-#         summarise(casos_total = sum(n)) %>% 
-#         ungroup() %>% 
-#         inner_join(df_pop_ibge, by = c("estado" = "estado",
-#                                        "regiao" = "regiao",
-#                                        "idade_grupo_who" = "idade",
-#                                        "ano" = "ano",
-#                                        "elder_group" = "elder_group")) %>%
-#         inner_join(df_pop_who_rates, by = c("idade_grupo_who" = "age_group",
-#                                             "elder_group" = "elder_group")) %>% 
-#         group_by(regiao, estado, ano, mes) %>% 
-#         summarise(admissoes = sum(casos_total),
-#                   pop_total = sum(populacao_total),
-#                   age_hosp_rate = 100000*epitools::ageadjust.direct(count = casos_total, pop = populacao_total, stdpop = pop_rate / 100)[2]                  ) %>%
-#         group_by(regiao, estado) %>% 
-#         arrange(regiao, estado, ano, mes) %>% 
-#         mutate(periodo = 1:n()) %>% 
-#         ungroup()
-
        
 # Age-adjusted data Region -------------------------------------------------
-
-## Average median age-adjusted rate per Region / State
-# df_stroke_serie_regiao_age_day <- df_stroke_serie_regiao %>% 
-#         inner_join(df_pop_ibge, by = c("estado" = "estado",
-#                                        "regiao" = "regiao",
-#                                        "idade_grupo_who" = "idade",
-#                                        "ano" = "ano",
-#                                        "elder_group" = "elder_group")) %>%
-#         inner_join(df_pop_who_rates, by = c("idade_grupo_who" = "age_group",
-#                                             "elder_group" = "elder_group")) %>% 
-#         group_by(regiao, ano, mes, dia) %>% 
-#         summarise(admissoes = sum(n),
-#                   pop_total = sum(populacao_total),
-#                   age_hosp_rate = 100000*epitools::ageadjust.direct(count = n, pop = populacao_total, stdpop = pop_rate / 100)[2]
-#                   ) %>%
-#         ungroup() %>% 
-#         group_by(regiao, ano, mes) %>% 
-#         summarise(age_hosp_rate_day_p50 = median(age_hosp_rate),
-#                   age_hosp_rate_day_p25 = quantile(age_hosp_rate, probs = 0.25),
-#                   age_hosp_rate_day_p75 = quantile(age_hosp_rate, probs = 0.75)) %>% 
-#         group_by(regiao) %>% 
-#         arrange(regiao, ano, mes) %>% 
-#         mutate(periodo = 1:n()) %>% 
-#         ungroup()
-
-
 
 df_stroke_serie_regiao_age_month <- df_stroke_serie_regiao %>% 
         group_by(regiao, estado, idade_grupo_who, elder_group, ano, mes) %>% 
@@ -152,34 +79,6 @@ df_stroke_serie_regiao_age_month <- df_stroke_serie_regiao %>%
 
 
 # Age-adjusted data Brazil -------------------------------------------------
-
-## Average median age-adjusted rate per Region / State
-# df_stroke_serie_brazil_age_day <- df_stroke_series_brazil %>% 
-#         inner_join(df_pop_ibge %>% 
-#                            group_by(idade, ano, elder_group) %>% 
-#                            summarise(populacao_total = sum(populacao_total)),
-#                    by = c("idade_grupo_who" = "idade",
-#                           "ano" = "ano",
-#                           "elder_group" = "elder_group")
-#                    ) %>%
-#         inner_join(df_pop_who_rates, by = c("idade_grupo_who" = "age_group",
-#                                             "elder_group" = "elder_group")) %>% 
-#         group_by(ano, mes, dia) %>% 
-#         summarise(admissoes = sum(n),
-#                   pop_total = sum(populacao_total),
-#                   age_hosp_rate = 100000*epitools::ageadjust.direct(count = n, pop = populacao_total, stdpop = pop_rate / 100)[2]
-#                   ) %>%
-#         ungroup() %>% 
-#         group_by(ano, mes) %>% 
-#         summarise(age_hosp_rate_day_p50 = median(age_hosp_rate),
-#                   age_hosp_rate_day_p25 = quantile(age_hosp_rate, probs = 0.25),
-#                   age_hosp_rate_day_p75 = quantile(age_hosp_rate, probs = 0.75)) %>% 
-#         ungroup() %>% 
-#         arrange(ano, mes) %>% 
-#         mutate(periodo = 1:n()) 
-
-
-
 
 df_stroke_serie_brazil_age_month <- df_stroke_series_brazil %>% 
         group_by(regiao, estado, idade_grupo_who, elder_group, ano, mes) %>% 
@@ -208,19 +107,4 @@ df_stroke_serie_age_month <- bind_rows(df_stroke_serie_regiao_age_month,
                                         df_stroke_serie_brazil_age_month)
 
 # Export ------------------------------------------------------------------
-# write_csv(df_stroke_serie_estado_age_day, "input/files/aih_stroke_2009_2017_serie_estado_dia.csv")
-# write_csv(df_stroke_serie_estado_age_month, "input/files/aih_stroke_2009_2017_serie_estado_mes.csv")
-
-# write_csv(df_stroke_serie_regiao_age_day, "input/files/aih_stroke_2009_2017_serie_regiao_dia.csv")
-# write_csv(df_stroke_serie_regiao_age_month, "input/files/aih_stroke_2009_2017_serie_regiao_mes.csv")
-
-# write_csv(df_stroke_serie_brazil_age_day, "input/files/aih_stroke_2009_2017_serie_brasil_dia.csv")
-# write_csv(df_stroke_serie_brazil_age_month, "input/files/aih_stroke_2009_2017_serie_brasil_mes.csv")
-
 write_csv(df_stroke_serie_age_month, "input/files/aih_stroke_2009_2018_month.csv")
-
-
-
-df_stroke_dados %>% 
-        count(ano)
-%>% 
