@@ -6,4 +6,7 @@ Data, code and results used in:
 Authors: Pedro Kurtz, Leonardo S.L. Bastos (lslbastos), Soraida Aguilar, Silvio Hamacher, and Fernando A. Bozza 
 
 Publish at: International Journal of Stroke
+
+URL: https://journals.sagepub.com/doi/10.1177/1747493020947333
+
 DOI: 10.1177/1747493020947333
