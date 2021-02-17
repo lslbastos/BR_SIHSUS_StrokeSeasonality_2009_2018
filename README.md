@@ -10,3 +10,5 @@ Publish at: International Journal of Stroke
 URL: https://journals.sagepub.com/doi/10.1177/1747493020947333
 
 DOI: 10.1177/1747493020947333
+
+Date: August 4, 2020
